@@ -1,0 +1,46 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch via NPM (dev)",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/src",
+            "runtimeArgs": [
+                "run",
+                "dev"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "env": {   
+                "NODE_ENV": "development",
+                "NAME_API_SERVICE_HOST": "localhost",
+                "NAME_API_SERVICE_PORT": "5129",
+            },
+            "type": "node"
+        },
+        {
+            "name": "Launch via NPM",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/src",
+            "runtimeArgs": [
+                "run",
+                "start"
+            ],
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "env": {   
+                "NODE_ENV": "development",
+                "NAME_API_SERVICE_HOST": "localhost",
+                "NAME_API_SERVICE_PORT": "5129",
+            },
+            "type": "node"
+        }
+    ]
+}
