@@ -16,7 +16,8 @@
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"dbaeumer.vscode-eslint"
+				"dbaeumer.vscode-eslint",
+				"ms-kubernetes-tools.aks-devx-tools"
 			]
 		}
 	},
@@ -32,6 +33,7 @@
 	"features": {
 		"docker-in-docker": "latest",
 		"kubectl-helm-minikube": "latest",
-		"azure-cli": "latest"
+		"azure-cli": "latest",
+		"github-cli": "latest"
 	}
 }
