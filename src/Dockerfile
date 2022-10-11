@@ -1,11 +1,13 @@
-FROM node:lts-alpine
-ENV PORT 80
-EXPOSE 80
+FROM node:14.15.4
+ENV PORT 3000
+EXPOSE 3000
 
-WORKDIR /app
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run build
+RUN npm run build # Build next framework
+
 
 CMD ["npm", "start"]

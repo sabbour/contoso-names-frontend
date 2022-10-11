@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contoso-names-frontend
+  labels:
+    app: contoso-names-frontend
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: contoso-names-frontend
+  template:
+    metadata:
+      labels:
+        app: contoso-names-frontend
+    spec:
+      containers:
+      - name: contoso-names-frontend
+        image: ghcr.io/sabbour/contoso-names-frontend:11102022.0
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
