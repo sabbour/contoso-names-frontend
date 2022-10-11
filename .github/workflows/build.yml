@@ -34,7 +34,7 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@v3
       with:
-        context: ../../src
+        context: "{{defaultContext}}:src"
         push: ${{ github.event_name != 'pull_request' }}
         tags: |
               ${{ steps.meta.outputs.tags }}
