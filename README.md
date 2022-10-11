@@ -14,7 +14,7 @@ then open <http://localhost:3000> in your browser.
 ## Build and run the container image
 Replace the container registry details below with something you have access to like a Docker Hub registry, GitHub Container Registry, or Azure Container Registry.
 ```
-docker build -t ghcr.io/sabbour/contoso-names-frontend:11102022.0 ./src
+docker build -t ghcr.io/sabbour/contoso-names-frontend:11102022.0 .
 
 docker run -p 3000:80 ghcr.io/sabbour/contoso-names-frontend:11102022.0
 ```
