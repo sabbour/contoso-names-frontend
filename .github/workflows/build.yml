@@ -21,7 +21,9 @@ jobs:
       uses: docker/metadata-action@v4
       with:
         images: ghcr.io/${{ github.repository }}
-        tags: type=sha # generate Docker tags
+        tags: |
+              type=sha
+              type=schedule
         
     - name: Login to GitHub Container Registry
       if: github.event_name != 'pull_request'
@@ -34,7 +36,7 @@ jobs:
     - name: Build and push Docker images
       uses: docker/build-push-action@v3
       with:
-        context: ./src
+        context: src
         push: ${{ github.event_name != 'pull_request' }}
         tags: ${{ steps.meta.outputs.tags }}
       
