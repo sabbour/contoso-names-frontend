@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: contoso-names-frontend
-        image: ghcr.io/sabbour/contoso-names-frontend:11102022.0
+        image: ghcr.io/sabbour/contoso-names-frontend:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
