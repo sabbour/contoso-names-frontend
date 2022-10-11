@@ -2,11 +2,10 @@ FROM node:14.15.4
 ENV PORT 3000
 EXPOSE 3000
 
-RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
-COPY package*.json ./
+COPY src/package*.json ./
 RUN npm install
-COPY . .
+COPY src/. .
 RUN npm run build # Build next framework
 
 
