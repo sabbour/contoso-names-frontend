@@ -20,3 +20,8 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
+        env:
+        - name: NAME_API_SERVICE_HOST
+          value: contoso-names-service
+        - name: NAME_API_SERVICE_PORT
+          value: "80"
