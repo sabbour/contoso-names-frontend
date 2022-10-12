@@ -19,7 +19,7 @@
         {
             "name": "Launch via NPM",
             "request": "launch",
-            "cwd": "${workspaceFolder}/src",
+            "cwd": "${workspaceFolder}",
             "runtimeArgs": [
                 "run",
                 "start"

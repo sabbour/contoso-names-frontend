@@ -3,7 +3,6 @@ This repository has a dev container configuration. If you launch this repository
 
 ## Build and run locally
 ```
-cd src
 npm install
 npm run build
 npm start
