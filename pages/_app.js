@@ -21,7 +21,7 @@ export default class MyApp extends App {
       <div>
         <Head>
             <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-            <title>Topic App Sample</title>
+            <title>Contoso Name Generator</title>
         </Head>
         <Component {...pageProps} />
       </div>
