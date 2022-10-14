@@ -100,7 +100,7 @@ class TopicApp extends Component {
 
         return (
             <div className="TopicApp">
-                <h1 className="app-title">project name generator</h1>                
+                <h1 className="app-title">band name generator</h1>                
                 <button className="surprise-button" onClick={this.handleSurpriseClick}>Surprise me</button>
                 <div className="main">
                     <ul className="topic-list">
