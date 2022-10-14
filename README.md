@@ -1,4 +1,4 @@
-# Contoso project name generator (frontend)
+# Contoso band name generator (frontend)
 This repository has a dev container configuration. If you launch this repository in a GitHub Codespace, you should have all the tools and runtimes you need to work on this project. The configuration files for the dev container are contained in the `.devcontainer` directory.
 
 ## Build and run locally
