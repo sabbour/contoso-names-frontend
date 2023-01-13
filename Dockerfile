@@ -1,4 +1,4 @@
-FROM node:14.15.4
+FROM node:16.17.0-bullseye-slim
 ENV PORT 3000
 EXPOSE 3000
 
