@@ -6,6 +6,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm install
 COPY . .
+RUN npm config set update-notifier false
 RUN npm run build # Build next framework
 
 
