@@ -19,7 +19,6 @@
     "main": "server.js",
     "scripts": {
         "dev": "nodemon",
-        "postinstall": "npm config set update-notifier false && npm run build",
         "build": "next build",
         "start": "node server.js"
     }
