@@ -11,9 +11,12 @@ app.prepare().then(() => {
     const server = express();
     server.use(bodyParser.json());
 
+    const names_api_host = process.env.NAME_API_SERVICE_HOST || 'contoso-names-service'
+    const names_api_port = process.env.NAME_API_SERVICE_PORT || '80'
+        
     server.get("/api/names", function (req, res) {
         console.log("server.get /api/names")
-       requestData(req, process.env.NAME_API_SERVICE_HOST, process.env.NAME_API_SERVICE_PORT, '/names', 'GET', null, (data, error) => {
+       requestData(req, names_api_host, names_api_port, '/names', 'GET', null, (data, error) => {
             if (error != null) {
                 res.status(500).send(error);
                 return;
