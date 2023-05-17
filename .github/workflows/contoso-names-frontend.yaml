@@ -5,14 +5,14 @@ name: contoso-names-frontend
             - main
     workflow_dispatch: {}
 env:
-    ACR_RESOURCE_GROUP: acrworkflow1684348698892
-    AZURE_CONTAINER_REGISTRY: contosoacrbuild
+    ACR_RESOURCE_GROUP: acrworkflow1684355325346
+    AZURE_CONTAINER_REGISTRY: contosonames
     CLUSTER_NAME: contoso
-    CLUSTER_RESOURCE_GROUP: contoso-build-take1
+    CLUSTER_RESOURCE_GROUP: contoso
     CONTAINER_NAME: contoso-names-frontend
     DEPLOYMENT_MANIFEST_PATH: |
-        ./manifests/deployment.yaml
-        ./manifests/service.yaml
+        manifests/deployment.yaml
+        manifests/service.yaml
 jobs:
     buildImage:
         permissions:
@@ -21,14 +21,14 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2
+            - uses: azure/login@v1.4.3
               name: Azure login
               with:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
                 subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
                 tenant-id: ${{ secrets.AZURE_TENANT_ID }}
             - name: Build and push image to ACR
-              run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f ./Dockerfile ./
+              run: az acr build --image ${{ env.CONTAINER_NAME }}:${{ github.sha }} --registry ${{ env.AZURE_CONTAINER_REGISTRY }} -g ${{ env.ACR_RESOURCE_GROUP }} -f Dockerfile ./
     deploy:
         permissions:
             actions: read
@@ -39,7 +39,7 @@ jobs:
             - buildImage
         steps:
             - uses: actions/checkout@v3
-            - uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2
+            - uses: azure/login@v1.4.3
               name: Azure login
               with:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -62,4 +62,4 @@ jobs:
                 action: deploy
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
-                namespace: contoso
+                namespace: contosonames

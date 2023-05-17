@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: contoso-names-frontend
+  labels:
+    app: contoso-names-frontend
+  namespace: contosonames
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: contoso-names-frontend
+  template:
+    metadata:
+      labels:
+        app: contoso-names-frontend
+    spec:
+      containers:
+        - name: contoso-names-frontend
+          image: contosonames.azurecr.io/contoso-names-frontend:latest
+          ports:
+            - containerPort: 3000
