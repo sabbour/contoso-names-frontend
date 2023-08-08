@@ -5,10 +5,10 @@ name: contoso-names-frontend
             - main
     workflow_dispatch: {}
 env:
-    ACR_RESOURCE_GROUP: contoso
-    AZURE_CONTAINER_REGISTRY: contosonames
-    CLUSTER_NAME: contoso
-    CLUSTER_RESOURCE_GROUP: contoso
+    ACR_RESOURCE_GROUP: aks-app-env-uwe-rg
+    AZURE_CONTAINER_REGISTRY: aksappenvacruwe
+    CLUSTER_NAME: aksappenvuwe
+    CLUSTER_RESOURCE_GROUP: aks-app-env-uwe-rg
     CONTAINER_NAME: contoso-names-frontend
     DEPLOYMENT_MANIFEST_PATH: |
         manifests/deployment.yaml
@@ -21,7 +21,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v3
-            - uses: azure/login@v1.4.3
+            - uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2
               name: Azure login
               with:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -39,7 +39,7 @@ jobs:
             - buildImage
         steps:
             - uses: actions/checkout@v3
-            - uses: azure/login@v1.4.3
+            - uses: azure/login@92a5484dfaf04ca78a94597f4f19fea633851fa2
               name: Azure login
               with:
                 client-id: ${{ secrets.AZURE_CLIENT_ID }}
@@ -62,4 +62,4 @@ jobs:
                 action: deploy
                 images: ${{ env.AZURE_CONTAINER_REGISTRY }}.azurecr.io/${{ env.CONTAINER_NAME }}:${{ github.sha }}
                 manifests: ${{ env.DEPLOYMENT_MANIFEST_PATH }}
-                namespace: contosonames
+                namespace: contoso-names
