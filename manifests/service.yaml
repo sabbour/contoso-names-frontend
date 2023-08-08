@@ -2,7 +2,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: contoso-names-frontend
-  namespace: contosonames
+  namespace: contoso-names
 spec:
   type: LoadBalancer
   selector:
